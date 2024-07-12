@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="TestSuite.Data-Validation" tests="2" time="1.210">
+  <testsuite name="Create Employee" id="a66336ba-8931-4383-ba46-7eb1cbde6a62" timestamp="2024-06-09T13:48:51.658Z" tests="1" failures="0" errors="0" time="0.900">
+    <testcase name="New employee created with id: 5613" time="0.900" classname="TestSuiteDataValidation"/>
+  </testsuite>
+  <testsuite name="Get All Employees" id="dda4aaec-18a1-4f50-a4cf-70e6f4204e72" timestamp="2024-06-09T13:48:51.658Z" tests="1" failures="1" errors="0" time="0.310">
+    <testcase name="Fetch all employees successfully" time="0.310" classname="TestSuiteDataValidation">
+      <failure type="AssertionFailure" message="expected '&lt;!DOCTYPE html>\n&lt;html lang=&quot;en&quot;>\n  …' to include 'Successfully! All records has been fe…'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: b277558d-683e-4946-be1e-e5af4408a1ec.]]>
+        <![CDATA[Collection name: TestSuite.Data-Validation.]]>
+        <![CDATA[Request name: Get All Employees.]]>
+        <![CDATA[Test description: Fetch all employees successfully.]]>
+        <![CDATA[Error message: expected '<!DOCTYPE html>\n<html lang="en">\n  …' to include 'Successfully! All records has been fe…'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected '<!DOCTYPE html>\n<html lang="en">\n  …' to include 'Successfully! All records has been fe…'
+   at Object.eval sandbox-script.js:1:2).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+</testsuites>
