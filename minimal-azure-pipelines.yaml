@@ -13,7 +13,7 @@ pool: test
 variables:
   python.version: '3.7.6'
   # ToDo: Replace the service connection name as used in the DevOps project settings
-  azureServiceConnectionId: '$(azureServiceConnectionIdEnv)'
+  azureServiceConnectionId: '$env:azureServiceConnectionIdEnv'
   storageAccountName: '$(storageAccountNameEnv)'
   # Project root folder. Point to the folder containing manage.py file.
   projectRoot: $(System.DefaultWorkingDirectory)
@@ -25,7 +25,7 @@ stages:
   jobs:
   - job: BuildInfrastructure
     steps:
-    - script: echo $(azureServiceConnectionIdEnv)
+    - script: echo $env:azureServiceConnectionIdEnv
     - script: echo $(storageAccountNameEnv)
     - script: echo $(azureServiceConnectionId)
     - script: echo $(storageAccountName)
