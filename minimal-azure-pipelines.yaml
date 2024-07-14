@@ -25,6 +25,11 @@ stages:
   jobs:
   - job: BuildInfrastructure
     steps:
+    - script: echo $env:azureServiceConnectionIdEnv
+    - script: echo $(storageAccountNameEnv)
+    - script: echo $(azureServiceConnectionId)
+    - script: echo $(storageAccountName)
+    - script: echo ${{ variables.azureServiceConnectionIdTemp }}
           
     # Install Terraform on the pipeline agent 
     - task: TerraformInstaller@0
@@ -40,7 +45,7 @@ stages:
         provider: 'azurerm'
         command: 'init'
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
-        backendServiceArm: '$(azureServiceConnectionId)'
+        backendServiceArm: ${{ variables.azureServiceConnectionId }}
         backendAzureRmResourceGroupName: 'Azuredevops'
         backendAzureRmStorageAccountName: '$(storageAccountName)'
         backendAzureRmContainerName: 'tfstate'
@@ -62,7 +67,7 @@ stages:
         provider: 'azurerm'
         command: 'apply'
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
-        environmentServiceNameAzureRM: '$(azureServiceConnectionId)'
+        environmentServiceNameAzureRM: ${{ variables.azureServiceConnectionId }}
 
     # Destroy the resources in Azure
     # ToDo: Change the workingDirectory path, as applicable to you
@@ -72,4 +77,4 @@ stages:
         provider: 'azurerm'
         command: 'destroy'
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
-        environmentServiceNameAzureRM: '$(azureServiceConnectionId)'        
+        environmentServiceNameAzureRM: ${{ variables.azureServiceConnectionId }}        
