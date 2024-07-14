@@ -24,15 +24,17 @@ stages:
   jobs:
   - job: BuildInfrastructure
     steps:
-    - task: PowerShell@2
+    - task: AzurePowerShell@5
       inputs:
-        targetType: 'inline'
-        script: |
+        azureSubscription: 'az-service-connection'
+        ScriptType: 'InlineScript'
+        Inline: |
           # Write your PowerShell commands here.
-          
-          Write-Host '$(azureServiceConnectionId)'
-          
-          Write-Host $(storageAccountName)
+                    
+                    Write-Host '$(azureServiceConnectionId)'
+                    
+                    Write-Host $(storageAccountName)
+        azurePowerShellVersion: 'LatestVersion'
           
     # Install Terraform on the pipeline agent 
     - task: TerraformInstaller@0
