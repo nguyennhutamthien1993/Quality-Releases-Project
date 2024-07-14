@@ -25,6 +25,10 @@ stages:
   jobs:
   - job: BuildInfrastructure
     steps:
+    - script: echo $(azureServiceConnectionIdEnv)
+    - script: echo $(storageAccountNameEnv)
+    - script: echo $(azureServiceConnectionId)
+    - script: echo $(storageAccountName)
           
     # Install Terraform on the pipeline agent 
     - task: TerraformInstaller@0
