@@ -8,7 +8,7 @@ trigger:
 
 # ToDo: Replace the agent pool name, if you are using Udacity Cloud lab. 
 # Otherwise, comment out the line below. 
-pool: agentPool
+pool: myAgentPool
 
 variables:
   python.version: '3.7.6'
@@ -221,7 +221,7 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Deploy Azure Web App'
             inputs:
-              azureSubscription: '$(azSubscription)'     # ToDo
+              azureSubscription: ${{ variables.azureServiceConnectionId }}     # ToDo
               appName: 'Fake Rest API'               # ToDo
               appType: webApp
               package: $(Pipeline.Workspace)/drop-fakerestapi     # ToDo: Use the published zip artifact. 
