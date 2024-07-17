@@ -1,5 +1,4 @@
 **/*.tfstate
-**/*.json
 **/*.exe
 
 # Local .terraform directories
@@ -38,7 +37,6 @@ override.tf.json
 terraform.rc
 
 **/*.tfstate
-**/*.json
 **/*.exe
 # Local .terraform directories
 **/.terraform/*

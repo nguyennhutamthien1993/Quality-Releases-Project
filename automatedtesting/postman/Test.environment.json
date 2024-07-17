@@ -1,0 +1,15 @@
+{
+	"id": "2aeea282-1f32-4c5e-b62b-59010ef14b6b",
+	"name": "Starter APIs",
+	"values": [
+		{
+			"key": "employee_id",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2024-06-09T06:15:53.567Z",
+	"_postman_exported_using": "Postman/11.1.14"
+}
