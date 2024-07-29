@@ -236,7 +236,7 @@ stages:
                 wget "https://dlcdn.apache.org//jmeter/source/apache-jmeter-5.6.3_src.tgz"
                 tar -xf apache-jmeter-5.6.3_src.tgz
                 unzip -o $(Build.BuildId)-perftests.zip
-                $(Agent.HomeDirectory)/apache-jmeter-5.6.3_src.tgz/bin/jmeter -n -t PerformanceTestSuite.jmx -j jmeter.log -f
+                apache-jmeter-5.6.3_src.tgz/bin/jmeter -n -t $(Agent.HomeDirectory)/PerformanceTestSuite.jmx -j jmeter.log -f
                 cat jmeter.log                                                                           # ToDo: Write your commands
               workingDirectory: $(Pipeline.Workspace)/drop-perftests           # ToDo: Use the artifact name from the task above
               
