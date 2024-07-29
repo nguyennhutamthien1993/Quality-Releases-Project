@@ -237,7 +237,7 @@ stages:
                 tar -xf apache-jmeter-5.6.3_src.tgz
                 unzip -o $(Build.BuildId)-perftests.zip
                 ls
-                apache-jmeter-5.6.3_src.tgz/bin/jmeter -n -t PerformanceTestSuite.jmx -j jmeter.log -f
+                apache-jmeter-5.6.3/bin/jmeter -n -t PerformanceTestSuite.jmx -j jmeter.log -f
                 cat jmeter.log                                                                           # ToDo: Write your commands
               workingDirectory: $(Pipeline.Workspace)/drop-perftests           # ToDo: Use the artifact name from the task above
               
@@ -266,7 +266,7 @@ stages:
                 sudo apt-get upgrade -y
                 sudo apt-get install python3-pip -y
                 sudo apt-get install unzip -y
-                sudo apt-get install -y chromium-browser
+                sudo apt-get install -y chromium-browser -v 125.0.6422.141
                 pip3 install selenium
                 cd ~/
                 DIR=/home/azureuser/app
@@ -279,7 +279,7 @@ stages:
                 FILE=/home/azureuser/app/chromedriver_linux64.zip
                 if [ ! -f "$FILE" ]; then
                     LATEST=$(wget -q -O - http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
-                    wget http://chromedriver.storage.googleapis.com/$LATEST/chromedriver_linux64.zip
+                    wget https://storage.googleapis.com/chrome-for-testing-public/125.0.6422.141/linux64/chromedriver-linux64.zip
                     unzip -o chromedriver_linux64.zip
                     sudo ln -s $PWD/chromedriver /usr/local/bin/chromedriver
                 fi
