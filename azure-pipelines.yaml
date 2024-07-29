@@ -236,8 +236,17 @@ stages:
                 wget "https://dlcdn.apache.org//jmeter/source/apache-jmeter-5.6.3_src.tgz"
                 tar -xf apache-jmeter-5.6.3_src.tgz
                 unzip -o $(Build.BuildId)-perftests.zip
+                echo 'before ls'
                 ls
+                echo 'java bin'
                 which java
+                echo 'java home'
+                echo $JAVA_HOME
+                install java sudo apt install openjdk-17-jre-headless
+                set $JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+                echo 'java bin2'
+                which java
+                echo 'java hom2e'
                 echo $JAVA_HOME
                 apache-jmeter-5.6.3/bin/jmeter -n -t PerformanceTestSuite.jmx -j jmeter.log -f
                 cat jmeter.log                                                                           # ToDo: Write your commands
