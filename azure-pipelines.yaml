@@ -229,6 +229,9 @@ stages:
               package: $(Pipeline.Workspace)/drop-fakerestapi     # ToDo: Use the published zip artifact. 
           #--------------------------------------------#    
           # Run JMeter test suite against the App Service
+          - download: current
+            artifact: drop-perftests     # ToDo: Change/provide a name
+
           - task: CmdLine@2
             inputs:
               script: |
