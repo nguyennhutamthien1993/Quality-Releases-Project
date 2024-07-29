@@ -56,6 +56,10 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'validate'
+    - task: CmdLine@2
+      inputs:
+        script: |
+          cp data/terraform.tfvars '$(System.DefaultWorkingDirectory)/terraform/environments/test'
 
     
     # Run Terraform Apply
