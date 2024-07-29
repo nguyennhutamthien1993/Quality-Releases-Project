@@ -56,6 +56,10 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'validate'
+    - task: CmdLine@2
+      inputs:
+        script: |
+          cp $(Agent.WorkFolder)/data/terraform.tfvars '$(System.DefaultWorkingDirectory)/terraform/environments/test'
 
     
     # Run Terraform Apply
@@ -210,9 +214,7 @@ stages:
   #--------------------------------------------#  
   # Deploy FakeRestAPI Web App
   # ToDo: Provide <environment name> you created in your DevOps project
-  - deployment: FakeRestAPI
-    pool:
-      vmImage: 'Ubuntu-18.04'      
+  - deployment: FakeRestAPI 
     environment: 'Test'   # ToDo
     strategy:
       runOnce:
@@ -222,7 +224,7 @@ stages:
             displayName: 'Deploy Azure Web App'
             inputs:
               azureSubscription: ${{ variables.azureServiceConnectionId }}     # ToDo
-              appName: 'Fake Rest API'               # ToDo
+              appName: 'fakerestapi-appservice'               # ToDo
               appType: webApp
               package: $(Pipeline.Workspace)/drop-fakerestapi     # ToDo: Use the published zip artifact. 
           #--------------------------------------------#    
@@ -230,10 +232,10 @@ stages:
           - task: CmdLine@2
             inputs:
               script: |
-                wget "https://apache.mirrors.lucidnetworks.net//jmeter/binaries/apache-jmeter-5.2.1.tgz"
-                tar -xf apache-jmeter-5.2.1.tgz
+                wget "https://dlcdn.apache.org//jmeter/source/apache-jmeter-5.6.3_src.tgz"
+                tar -xf apache-jmeter-5.6.3_src.tgz
                 unzip -o $(Build.BuildId)-perftests.zip
-                ./apache-jmeter-5.2.1/bin/jmeter -n -t PerformanceTestSuite.jmx -j jmeter.log -f
+                ./apache-jmeter-5.6.3_src.tgz/bin/jmeter -n -t PerformanceTestSuite.jmx -j jmeter.log -f
                 cat jmeter.log                                                                           # ToDo: Write your commands
               workingDirectory: $(Pipeline.Workspace)/drop-perftests           # ToDo: Use the artifact name from the task above
               
@@ -251,7 +253,7 @@ stages:
         deploy:
           steps:
           - download: current
-            artifact: drop-ui-tests     # ToDo: Change/provide a name
+            artifact: drop-uitests     # ToDo: Change/provide a name
             
           - task: Bash@3
             inputs:
