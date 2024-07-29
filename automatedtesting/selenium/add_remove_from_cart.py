@@ -8,6 +8,8 @@ def initDriver():
     print ('Starting the browser...')
     options = ChromeOptions()
     options.add_argument("--headless") 
+    options.add_argument("--remote-debugging-port=8080")
+    options.add_argument("--no-sandbox") 
     # driver = webdriver.Chrome(options=options)
     webDriver = webdriver.Chrome(options=options)
     print ('Browser started successfully. Navigating to the demo page to login.')
