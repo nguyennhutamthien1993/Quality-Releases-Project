@@ -242,7 +242,7 @@ stages:
                 which java
                 echo 'java home'
                 echo $JAVA_HOME
-                install java sudo apt install openjdk-17-jre-headless
+                sudo apt install openjdk-17-jre-headless
                 set $JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
                 echo 'java bin2'
                 which java
