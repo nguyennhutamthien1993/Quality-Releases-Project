@@ -233,7 +233,7 @@ stages:
           - task: CmdLine@2
             inputs:
               script: |
-                wget "https://dlcdn.apache.org//jmeter/source/apache-jmeter-5.6.3_src.tgz"
+                wget "https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.6.3.tgz"
                 tar -xf apache-jmeter-5.6.3_src.tgz
                 unzip -o $(Build.BuildId)-perftests.zip
                 echo 'before ls'
