@@ -6,10 +6,10 @@ import time
 
 def initDriver():
     print ('Starting the browser...')
-    # options = ChromeOptions()
-    # options.add_argument("--headless") 
+    options = ChromeOptions()
+    options.add_argument("--headless") 
     # driver = webdriver.Chrome(options=options)
-    webDriver = webdriver.Chrome()
+    webDriver = webdriver.Chrome(options=options)
     print ('Browser started successfully. Navigating to the demo page to login.')
     webDriver.get('https://www.saucedemo.com/')
 
