@@ -183,7 +183,7 @@ stages:
     - task: ArchiveFiles@2
       displayName: 'Archive FakeRestAPI'
       inputs:
-        rootFolderOrFile: 
+        rootFolderOrFile: $(System.DefaultWorkingDirectory)/automatedtesting/jmeter/fakerestapi
         includeRootFolder: false
         archiveType: 'zip'
         archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-fakerestapi.zip'
@@ -197,7 +197,7 @@ stages:
     - task: ArchiveFiles@2
       displayName: 'Archive PerformanceTestSuite'
       inputs:
-        rootFolderOrFile: 
+        rootFolderOrFile: $(System.DefaultWorkingDirectory)/automatedtesting/jmeter
         includeRootFolder: false
         archiveType: 'zip'
         archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-perftests.zip'
@@ -229,8 +229,6 @@ stages:
               package: $(Pipeline.Workspace)/drop-fakerestapi     # ToDo: Use the published zip artifact. 
           #--------------------------------------------#    
           # Run JMeter test suite against the App Service
-          - download: current
-            artifact: drop-perftests     # ToDo: Change/provide a name
 
           - task: CmdLine@2
             inputs:
@@ -238,7 +236,8 @@ stages:
                 wget "https://dlcdn.apache.org//jmeter/source/apache-jmeter-5.6.3_src.tgz"
                 tar -xf apache-jmeter-5.6.3_src.tgz
                 unzip -o $(Build.BuildId)-perftests.zip
-                ./apache-jmeter-5.6.3_src.tgz/bin/jmeter -n -t PerformanceTestSuite.jmx -j jmeter.log -f
+                ls
+                apache-jmeter-5.6.3_src.tgz/bin/jmeter -n -t $(Agent.HomeDirectory)/PerformanceTestSuite.jmx -j jmeter.log -f
                 cat jmeter.log                                                                           # ToDo: Write your commands
               workingDirectory: $(Pipeline.Workspace)/drop-perftests           # ToDo: Use the artifact name from the task above
               
@@ -270,21 +269,21 @@ stages:
                 sudo apt-get install -y chromium-browser
                 pip3 install selenium
                 cd ~/
-                DIR=/home/testuser/app
+                DIR=/home/azureuser/app
                 if [ ! -d "$DIR" ]; then
                     mkdir app
                 fi
-                mv /home/testuser/azagent/_work/1/drop-uitests/$(Build.BuildId)-uitests.zip app
+                mv /home/azureuser/azagent/_work/1/drop-uitests/$(Build.BuildId)-uitests.zip app
                 cd app
                 unzip -o $(Build.BuildId)-uitests.zip
-                FILE=/home/testuser/app/chromedriver_linux64.zip
+                FILE=/home/azureuser/app/chromedriver_linux64.zip
                 if [ ! -f "$FILE" ]; then
                     LATEST=$(wget -q -O - http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
                     wget http://chromedriver.storage.googleapis.com/$LATEST/chromedriver_linux64.zip
                     unzip -o chromedriver_linux64.zip
                     sudo ln -s $PWD/chromedriver /usr/local/bin/chromedriver
                 fi
-                export PATH=$PATH:/home/testuser/app
+                export PATH=$PATH:/home/azureuser/app
                 echo "Starting Selenium Tests"
                 python3 add_remove_from_cart.py >> selenium.log
                 echo "Completed Selenium Tests. Check selenium.log for results."
