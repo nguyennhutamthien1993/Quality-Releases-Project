@@ -25,17 +25,17 @@ def login (user, password):
 
 def addCarts():
     print ('Start add carts')
-    webDriver.find_element(By.CSS_SELECTOR, "button[id='add-to-cart-sauce-labs-backpack']")
+    webDriver.find_element(By.CSS_SELECTOR, "button[id='add-to-cart-sauce-labs-backpack']").click()
     print ('Add Sauce Labs Backpack successfully')
-    webDriver.find_element(By.CSS_SELECTOR, "button[id='add-to-cart-sauce-labs-bike-light']")
+    webDriver.find_element(By.CSS_SELECTOR, "button[id='add-to-cart-sauce-labs-bike-light']").click()
     print ('Add Sauce Labs Bike Light successfully')
-    webDriver.find_element(By.CSS_SELECTOR, "button[id='add-to-cart-sauce-labs-bolt-t-shirt']")
+    webDriver.find_element(By.CSS_SELECTOR, "button[id='add-to-cart-sauce-labs-bolt-t-shirt']").click()
     print ('Add Sauce Labs Bolt T-Shirt successfully')
-    webDriver.find_element(By.CSS_SELECTOR, "button[id='add-to-cart-sauce-labs-fleece-jacket']")
+    webDriver.find_element(By.CSS_SELECTOR, "button[id='add-to-cart-sauce-labs-fleece-jacket']").click()
     print ('Add Sauce Labs Fleece Jacket successfully')
-    webDriver.find_element(By.CSS_SELECTOR, "button[id='add-to-cart-sauce-labs-onesie']")
+    webDriver.find_element(By.CSS_SELECTOR, "button[id='add-to-cart-sauce-labs-onesie']").click()
     print ('Add Sauce Labs Onesie successfully')
-    webDriver.find_element(By.CSS_SELECTOR, "button[id='add-to-cart-test.allthethings()-t-shirt-(red)']")
+    webDriver.find_element(By.CSS_SELECTOR, "button[id='add-to-cart-test.allthethings()-t-shirt-(red)']").click()
     print ('Add Test.allTheThings() T-Shirt (Red) successfully')
     
     print ('Add carts successfully.')
@@ -43,36 +43,23 @@ def addCarts():
 
 def removeCarts():
     print ('Start remove carts')
-    webDriver.find_element(By.CSS_SELECTOR, "button[id='remove-sauce-labs-backpack']")
+    webDriver.find_element(By.CSS_SELECTOR, "button[id='remove-sauce-labs-backpack']").click()
     print ('Remove Sauce Labs Backpack successfully')
-    webDriver.find_element(By.CSS_SELECTOR, "button[id='remove-sauce-labs-bike-light']")
+    webDriver.find_element(By.CSS_SELECTOR, "button[id='remove-sauce-labs-bike-light']").click()
     print ('Remove Sauce Labs Bike Light successfully')
-    webDriver.find_element(By.CSS_SELECTOR, "button[id='remove-sauce-labs-bolt-t-shirt']")
+    webDriver.find_element(By.CSS_SELECTOR, "button[id='remove-sauce-labs-bolt-t-shirt']").click()
     print ('Remove Sauce Labs Bolt T-Shirt successfully')
-    webDriver.find_element(By.CSS_SELECTOR, "button[id='remove-sauce-labs-fleece-jacket']")
+    webDriver.find_element(By.CSS_SELECTOR, "button[id='remove-sauce-labs-fleece-jacket']").click()
     print ('Remove Sauce Labs Fleece Jacket successfully')
-    webDriver.find_element(By.CSS_SELECTOR, "button[id='remove-sauce-labs-onesie']")
+    webDriver.find_element(By.CSS_SELECTOR, "button[id='remove-sauce-labs-onesie']").click()
     print ('Remove Sauce Labs Onesie successfully')
-    webDriver.find_element(By.CSS_SELECTOR, "button[id='remove-test.allthethings()-t-shirt-(red)']")
+    webDriver.find_element(By.CSS_SELECTOR, "button[id='remove-test.allthethings()-t-shirt-(red)']").click()
     print ('Remove Test.allTheThings() T-Shirt (Red) successfully')
 
     print ('Remove carts successfully.')
     time.sleep(2)
 
-def assertAddCarts():
-    print ('Start assert')
-    webDriver.find_element(By.CSS_SELECTOR, "div[id='shopping_cart_container'] > a > span.shopping_cart_badge")
-    print ('Get element')
-    addedCartsNumber = webDriver.find_element(By.CSS_SELECTOR, "div[id='shopping_cart_container'] > a > span.shopping_cart_badge").text
-    print(addedCartsNumber)
-    print ('Assert add carts successfully.')
-    time.sleep(2)
-
-def assertRemoveCarts():
-    print ('Assert add carts successfully.')
-
 webDriver = initDriver()
 login('standard_user', 'secret_sauce')
 addCarts()
-assertAddCarts()
-
+removeCarts()
