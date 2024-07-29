@@ -224,7 +224,7 @@ stages:
             displayName: 'Deploy Azure Web App'
             inputs:
               azureSubscription: ${{ variables.azureServiceConnectionId }}     # ToDo
-              appName: 'Fake Rest API'               # ToDo
+              appName: 'fakerestapi-appservice'               # ToDo
               appType: webApp
               package: $(Pipeline.Workspace)/drop-fakerestapi     # ToDo: Use the published zip artifact. 
           #--------------------------------------------#    
