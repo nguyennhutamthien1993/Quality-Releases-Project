@@ -24,23 +24,37 @@ def login (user, password):
     time.sleep(2)
 
 def addCarts():
+    print ('Start add carts')
     webDriver.find_element(By.CSS_SELECTOR, "button[id='add-to-cart-sauce-labs-backpack']")
+    print ('Add Sauce Labs Backpack successfully')
     webDriver.find_element(By.CSS_SELECTOR, "button[id='add-to-cart-sauce-labs-bike-light']")
+    print ('Add Sauce Labs Bike Light successfully')
     webDriver.find_element(By.CSS_SELECTOR, "button[id='add-to-cart-sauce-labs-bolt-t-shirt']")
+    print ('Add Sauce Labs Bolt T-Shirt successfully')
     webDriver.find_element(By.CSS_SELECTOR, "button[id='add-to-cart-sauce-labs-fleece-jacket']")
+    print ('Add Sauce Labs Fleece Jacket successfully')
     webDriver.find_element(By.CSS_SELECTOR, "button[id='add-to-cart-sauce-labs-onesie']")
+    print ('Add Sauce Labs Onesie successfully')
     webDriver.find_element(By.CSS_SELECTOR, "button[id='add-to-cart-test.allthethings()-t-shirt-(red)']")
+    print ('Add Test.allTheThings() T-Shirt (Red) successfully')
     
     print ('Add carts successfully.')
     time.sleep(2)
 
 def removeCarts():
+    print ('Start remove carts')
     webDriver.find_element(By.CSS_SELECTOR, "button[id='remove-sauce-labs-backpack']")
+    print ('Remove Sauce Labs Backpack successfully')
     webDriver.find_element(By.CSS_SELECTOR, "button[id='remove-sauce-labs-bike-light']")
+    print ('Remove Sauce Labs Bike Light successfully')
     webDriver.find_element(By.CSS_SELECTOR, "button[id='remove-sauce-labs-bolt-t-shirt']")
+    print ('Remove Sauce Labs Bolt T-Shirt successfully')
     webDriver.find_element(By.CSS_SELECTOR, "button[id='remove-sauce-labs-fleece-jacket']")
+    print ('Remove Sauce Labs Fleece Jacket successfully')
     webDriver.find_element(By.CSS_SELECTOR, "button[id='remove-sauce-labs-onesie']")
+    print ('Remove Sauce Labs Onesie successfully')
     webDriver.find_element(By.CSS_SELECTOR, "button[id='remove-test.allthethings()-t-shirt-(red)']")
+    print ('Remove Test.allTheThings() T-Shirt (Red) successfully')
 
     print ('Remove carts successfully.')
     time.sleep(2)
