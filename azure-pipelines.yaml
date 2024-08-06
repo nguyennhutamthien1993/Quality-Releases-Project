@@ -59,6 +59,16 @@ stages:
         
     - script: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
       displayName: 'install az cli'
+    - task: AzurePowerShell@5
+      inputs:
+        azureSubscription: 'az-service-connection'
+        ScriptType: 'InlineScript'
+        Inline: |
+          # You can write your azure powershell scripts inline here. 
+          # You can also pass predefined and custom variables to this script using arguments
+          az storage blob download --container-name 'tfstate' --file $(Build.SourcesDirectory)\terraform.tfvars --name "terraform.tfvars" --account-key $(accountKey)
+        azurePowerShellVersion: 'LatestVersion'
+        
     - task: AzureCLI@1
       displayName: 'Azure CLI '
       inputs:
