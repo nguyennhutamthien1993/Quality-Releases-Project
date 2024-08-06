@@ -62,9 +62,7 @@ override.tf.json
 *_override.tf.json
 
 *.cache
-*.dll
-*.exe
-*.pdb
+
 /build/
 *.suo
 *.user
