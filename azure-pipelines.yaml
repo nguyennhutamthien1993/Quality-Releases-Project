@@ -56,10 +56,17 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'validate'
+    - task: AzureCLI@1
+      displayName: 'Azure CLI '
+      inputs:
+        azureSubscription: $(azSubscription)
+        scriptLocation: inlineScript
+        inlineScript: |
+          az storage blob download --container-name 'tfstate' --file $(Build.SourcesDirectory) --name "terraform.tfvars" --account-key $(accountkey)
     - task: CmdLine@2
       inputs:
         script: |
-          cp $(Agent.WorkFolder)/data/terraform.tfvars '$(System.DefaultWorkingDirectory)/terraform/environments/test'
+          cp $(Build.SourcesDirectory)\terraform.tfvars '$(System.DefaultWorkingDirectory)/terraform/environments/test'
 
     
     # Run Terraform Apply
