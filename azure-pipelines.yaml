@@ -65,7 +65,7 @@ stages:
         azureSubscription: $(azSubscription)
         scriptLocation: inlineScript
         inlineScript: |
-          az storage blob download --container-name 'tfstate' --file $(Build.SourcesDirectory) --name "terraform.tfvars" --account-key $(accountkey)
+          az storage blob download --container-name 'tfstate' --file $(Build.SourcesDirectory)\terraform.tfvars --name "terraform.tfvars" --account-key $(accountkey)
     - task: CmdLine@2
       inputs:
         script: |
