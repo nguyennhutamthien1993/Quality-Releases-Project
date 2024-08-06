@@ -56,6 +56,9 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'validate'
+        
+    - script: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+      displayName: 'install az cli'
     - task: AzureCLI@1
       displayName: 'Azure CLI '
       inputs:
