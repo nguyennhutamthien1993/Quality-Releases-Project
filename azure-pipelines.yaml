@@ -61,7 +61,7 @@ stages:
       displayName: 'install az cli'
     - task: AzurePowerShell@5
       inputs:
-        azureSubscription: 'az-service-connection'
+        azureSubscription: $(azSubscription)
         ScriptType: 'InlineScript'
         Inline: |
           # You can write your azure powershell scripts inline here. 
