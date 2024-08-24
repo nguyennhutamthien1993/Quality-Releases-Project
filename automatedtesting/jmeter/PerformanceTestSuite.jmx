@@ -29,7 +29,7 @@
         </HeaderManager>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Activity ">
-          <stringProp name="HTTPSampler.domain">thiennnt-fakerestapi.azurewebsites.net</stringProp>
+          <stringProp name="HTTPSampler.domain">fake-restapi-appservice.azurewebsites.net</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/api/Activities</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -52,7 +52,7 @@
           <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config">
             <stringProp name="delimiter">,</stringProp>
             <stringProp name="fileEncoding"></stringProp>
-            <stringProp name="filename">D:/Projects/Udacity/Azure Devops/Ensuring Quality Releases Project/Quality-Releases-Project/automatedtesting/jmeter/ActivityIds.csv</stringProp>
+            <stringProp name="filename">ActivityIds.csv</stringProp>
             <boolProp name="ignoreFirstLine">false</boolProp>
             <boolProp name="quotedData">false</boolProp>
             <boolProp name="recycle">true</boolProp>
@@ -63,7 +63,7 @@
           <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET All Activities">
-          <stringProp name="HTTPSampler.domain">thiennnt-fakerestapi.azurewebsites.net</stringProp>
+          <stringProp name="HTTPSampler.domain">fake-restapi-appservice.azurewebsites.net</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/api/Activities</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -135,7 +135,7 @@
         </HeaderManager>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Activity">
-          <stringProp name="HTTPSampler.domain">thiennnt-fakerestapi.azurewebsites.net</stringProp>
+          <stringProp name="HTTPSampler.domain">fake-restapi-appservice.azurewebsites.net</stringProp>
           <stringProp name="HTTPSampler.path">/api/Activities</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -155,7 +155,7 @@
         </HTTPSamplerProxy>
         <hashTree>
           <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config">
-            <stringProp name="filename">D:/Projects/Udacity/Azure Devops/Ensuring Quality Releases Project/Quality-Releases-Project/automatedtesting/jmeter/ActivityIds.csv</stringProp>
+            <stringProp name="filename">ActivityIds.csv</stringProp>
             <stringProp name="fileEncoding"></stringProp>
             <stringProp name="variableNames">ActivityId</stringProp>
             <boolProp name="ignoreFirstLine">false</boolProp>
@@ -168,7 +168,7 @@
           <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET All Activities">
-          <stringProp name="HTTPSampler.domain">thiennnt-fakerestapi.azurewebsites.net</stringProp>
+          <stringProp name="HTTPSampler.domain">fake-restapi-appservice.azurewebsites.net</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/api/Activities</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
