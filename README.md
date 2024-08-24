@@ -10,7 +10,19 @@ This repository contains the starter code for the **Ensuring Quality Releases** 
 Feel free to submit PRs to this repo should you have any proposed changes. 
 
 ### Guideline
-- 
+- Git clone {repository-url}
+- Create vm-build Linux by Portal
+- Create Storage Account for Terraform State with path bash `/terraform/environments/test/configure-tfstate-storage-account.sh
+- Create Azure Devops PAT and ARM Service Connection with Storage Account Contributor Role
+- Install Azure Devops agent build
+- Capture image from vm-build
+- Create Azure Devops Environment & Resources
+- Create Azure Devops Pipeline
+- Install Terraform Extension from Marketplace
+- Install dependences: python, npm, newman, chrome driver, chrome browser, java jdk, jmeter,...
+- Execute Pipeline successfully
+- Configure Action Group & Alert
+- Configure Log from vm & query by KQL
 ### Structure
 1. `automatedtesting` folder contains automated testing methods
     - `jmeter` folder contains performance test suites and application source code
